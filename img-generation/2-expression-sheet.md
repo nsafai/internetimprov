@@ -1,0 +1,1 @@
+Create an expression sheet for **[Character]**, matching the provided reference image exactly for facial structure, proportions, hairstyle, and style. Show **9 expressions**: neutral, confused, amused, subtle smile, annoyed, deadpan, stressed, raised eyebrow, and surprised. Same stylized soft 3D aesthetic. Maintain identical proportions. Clean background.

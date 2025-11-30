@@ -1,0 +1,47 @@
+{
+  "character": "casey",
+  "description": "The Straight Man Narrator - reads OPs, provides structure, annoyed-but-loveable anchor",
+
+  "base_prompt": "3D animated male character, Pixar Disney style, stylized proportions, soft 3D render, smooth skin texture, warm studio lighting, clean solid background, full body shot, standing pose",
+
+  "identity_tags": "adult man late 20s, short dark brown hair side-parted, thick expressive dark eyebrows, brown eyes, warm tan skin, slight stubble, friendly approachable face, slim athletic build",
+
+  "outfit_tags": "olive khaki blazer jacket, cream beige button-up collared shirt, brown leather belt, dark navy blue jeans, brown leather oxford shoes, dark wristwatch on left wrist",
+
+  "style_tags": "high quality, detailed, professional 3D animation style, Pixar aesthetic, DreamWorks style, soft diffused lighting, clean render, character design, animation ready",
+
+  "expressions": {
+    "neutral": "neutral calm expression, slight knowing look, relaxed face",
+    "exasperated": "exasperated expression, tired eyes, slight frown, annoyed but patient",
+    "deadpan": "deadpan expression, flat unamused stare, minimal emotion",
+    "amused": "subtly amused expression, slight smirk, raised eyebrow",
+    "surprised": "surprised expression, raised eyebrows, wide eyes, open mouth slightly",
+    "frustrated": "frustrated expression, pinched brow, tense jaw, stressed",
+    "reading": "looking down at tablet, focused expression, reading intently"
+  },
+
+  "poses": {
+    "standing_neutral": "standing naturally, one hand in pocket, relaxed confident stance",
+    "standing_tablet": "standing holding tablet in right hand, looking at viewer",
+    "reading_tablet": "standing holding tablet with both hands, looking down at screen",
+    "gesturing": "standing with one hand gesturing outward, explaining something",
+    "arms_crossed": "standing with arms crossed, slightly defensive but attentive",
+    "hand_on_hip": "standing with one hand on hip, other hand relaxed at side"
+  },
+
+  "props": {
+    "tablet": "holding dark tablet iPad device"
+  },
+
+  "negative_prompt_default": "photorealistic, hyperrealistic, photograph, real human, anime, 2d, flat, cartoon, sketch, painting, watercolor, blurry, low quality, bad anatomy, extra fingers, mutated hands, poorly drawn face, distorted face, ugly, duplicate, morbid, dark, gritty, horror, scary, nsfw, nude, text, watermark, signature, logo, multiple characters, crowd",
+
+  "recommended_settings": {
+    "model": "juggernautXL_ragnarokBy.safetensors",
+    "sampler": "DPM++ 2M Karras",
+    "steps": 20,
+    "cfg_scale": 7,
+    "width": 896,
+    "height": 1152,
+    "batch_size": 4
+  }
+}

@@ -1,0 +1,1 @@
+Create a pose library for **[Character]**, using the provided reference to maintain exact proportions, outfit, and style. Show **4 poses**: pointing, speaking while gesturing, holding his digital tablet thoughtfully, arms crossed, hands on hips, shrugging, mild frustration pose, and a confused reaction pose. Same stylized soft 3D aesthetic. Clean background.

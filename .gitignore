@@ -1,0 +1,61 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Logs and generated files
+*.log
+logs/
+pipeline/logs/
+
+# Local config
+.env
+.env.local
+*.local.json
+
+# Generated assets (uncomment if you don't want to track these)
+# characters/*/poses/
+# episodes/*/shots/
+
+# Model files (large binary files)
+*.ckpt
+*.safetensors
+*.pth
+*.pt
+*.bin
+models/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Test outputs
+test_outputs/
