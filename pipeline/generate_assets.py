@@ -16,7 +16,7 @@ from pathlib import Path
 # =============================================================================
 
 API_URL = "http://127.0.0.1:7860"
-BASE_DIR = Path("/Users/nicolaisafai/Desktop/internetimprov")
+BASE_DIR = Path(__file__).resolve().parent.parent  # internetimprov folder
 PIPELINE_DIR = BASE_DIR / "pipeline"
 CHARACTERS_DIR = BASE_DIR / "characters"
 EPISODES_DIR = BASE_DIR / "episodes"

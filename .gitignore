@@ -37,9 +37,10 @@ pipeline/logs/
 .env.local
 *.local.json
 
-# Generated assets (uncomment if you don't want to track these)
-# characters/*/poses/
-# episodes/*/shots/
+# Generated assets - track selected finals, exclude raw generations
+# episodes/*/audio/voice_tests/
+# episodes/*/audio/voice_designs/
+# characters/*/test_outputs/
 
 # Model files (large binary files)
 *.ckpt

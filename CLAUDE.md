@@ -55,6 +55,95 @@ When building tools/systems for this project:
 - **Scalable**: Build systems that can handle both short-form content and potential long-form expansions
 - **Visual consistency**: Maintain distinct, cohesive art direction where one frame identifies it as Internet Improv
 
+## Production Pipeline
+
+### Image Generation (Stable Diffusion WebUI)
+
+Located in `pipeline/generate_shot.py`. Uses SD WebUI API with JuggernautXL Ragnarok model.
+
+**Settings:**
+- Resolution: 1024x1024
+- Sampler: DPM++ 2M Karras
+- Steps: 25
+- CFG Scale: 7
+- Batch size: 3
+
+**Usage:**
+```bash
+# Start SD WebUI with API enabled first:
+# webui-user.bat with --api flag
+
+python pipeline/generate_shot.py list              # List available shots
+python pipeline/generate_shot.py shot01_casey_hook # Generate specific shot
+python pipeline/generate_shot.py all               # Generate all shots
+```
+
+**Output:** `episodes/001-kevin-identity/shots/` with timestamp folders. Selected images go in `selected/` subfolder.
+
+### Voice Generation (ElevenLabs)
+
+Located in `pipeline/generate_audio.py`. Requires API key in `.env` file.
+
+**Voice Design Process:**
+1. Use ElevenLabs Voice Design web UI (https://elevenlabs.io/voice-design) to create custom voices
+2. Describe the voice with personality traits matching the character
+3. Save the voice and copy the Voice ID
+4. Add Voice ID to `VOICES` dict in `generate_audio.py`
+
+**Voice Settings (per character):**
+- `stability`: Lower = more expressive/varied (0.15-0.4 for energetic, 0.8+ for deadpan)
+- `similarity_boost`: How closely to match the voice (0.6-0.9)
+- `style`: Emotional range (1.0 = max expressiveness)
+
+**Script Direction Tips:**
+- Use `...` for short pauses
+- Use `!` and `?` for emphasis
+- Avoid SSML `<break>` tags - they don't work well
+- The voice design itself determines energy level more than settings
+- For animated/energetic delivery, design the voice with words like "enthusiastic", "animated", "podcast host energy"
+
+**Usage:**
+```bash
+python pipeline/generate_audio.py list       # List shots
+python pipeline/generate_audio.py voices     # List available voices
+python pipeline/generate_audio.py 01_casey_hook  # Generate specific shot
+python pipeline/generate_audio.py all        # Generate all audio
+```
+
+**Output:** `episodes/001-kevin-identity/audio/`
+
+### Animation (Runway)
+
+Using Runway's Lip Sync feature to animate character images with voice audio.
+
+**Workflow:**
+1. Upload character image from `shots/selected/`
+2. Upload corresponding audio from `audio/`
+3. Generate lip-synced video
+
+**Note:** Runway Lip Sync works best with photorealistic faces. For stylized/Pixar-style characters, results may vary. Hedra is an alternative for stylized characters.
+
+**Credits:** Runway Standard plan ($12/mo) includes 625 credits. Lip Sync costs ~50-100 credits per generation.
+
+### Character Voice IDs
+
+Current voice assignments (update as voices are designed):
+- Casey: `wAQta5nXit6sNLk15rnQ` (custom - needs more energy)
+- Rex: TBD (should be deep, deadpan)
+- Fizz: TBD (should be chaotic, fast-talking)
+- Harper: TBD (warm, friendly)
+- Mira: TBD (theatrical, dramatic)
+- Dot: TBD (matter-of-fact, nerdy)
+- Byte: TBD (slightly robotic)
+
+## Episode Structure
+
+Episodes are stored in `episodes/<episode-id>/` with:
+- `shots/` - Generated character images
+- `shots/selected/` - Final selected images (renamed 01-10)
+- `audio/` - Voice audio files
+- `video/` - Final animated clips (TBD)
+
 ## Future Development Areas
 
 When adding functionality, consider these potential needs:
@@ -62,8 +151,5 @@ When adding functionality, consider these potential needs:
 - Content sourcing/curation from Reddit, Twitter, forums
 - Character assignment logic (matching character personality to content type)
 - Script generation/adaptation from internet content
-- Animation pipeline tools
-- Episode structure templates
-- Voice/dialogue generation aligned to character personalities
-- Visual design systems for consistent character representation
+- Video compositing/editing pipeline
 - Multi-platform export/formatting
